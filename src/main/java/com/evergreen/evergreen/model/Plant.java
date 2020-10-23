@@ -11,9 +11,9 @@ public class Plant {
 
     private String name;
     private Integer size;
-    private String species;
-    private Integer age;
-    private String status;
+    //private String species;
+    //private Integer age;
+    //private String status;
 
     public Integer getId() {
         return id;
@@ -39,27 +39,27 @@ public class Plant {
         this.size = size;
     }
 
-    public String getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(String species) {
-        this.species = species;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+//    public String getSpecies() {
+//        return species;
+//    }
+//
+//    public void setSpecies(String species) {
+//        this.species = species;
+//    }
+//
+//    public Integer getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(Integer age) {
+//        this.age = age;
+//    }
+//
+//    public String getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(String status) {
+//        this.status = status;
+//    }
 }
