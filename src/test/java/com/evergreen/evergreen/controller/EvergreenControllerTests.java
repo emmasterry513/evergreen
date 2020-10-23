@@ -13,7 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
-/*@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class EvergreenControllerTests {
 
     @LocalServerPort
@@ -35,4 +35,4 @@ public class EvergreenControllerTests {
         return "http://localhost:" + port + uri;
     }
 
-}*/
+}
