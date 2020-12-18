@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -20,5 +21,9 @@ public interface EvergreenRepository extends CrudRepository<Plant,Long> {
     @Query("from Events_log where plant_id=:id")
     public List<Events_log> findLoggingEvents(@Param("id") Integer plantId);
 
+
+    // Find the plants that have been watered in the last hour
+    @Query("from Events_log where event_timestamp < current_timestamp and event_timestamp > :timestamp_from")
+    public List<Events_log> findPlantsWateredInTheLastHour(@Param("timestamp_from") Timestamp timestamp_from);
 
 }

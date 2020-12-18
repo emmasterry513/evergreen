@@ -31,4 +31,11 @@ public class EvergreenController {
         return new ResponseEntity<List<Events_log>>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/watered_plants/hours/{hours}")
+    public ResponseEntity<List<Plant>> findWateredPlantsInParticularTime (@PathVariable Integer hours){
+        List<Plant> response = service.getPlantsHaveBeenWatered(hours);
+        return new ResponseEntity<List<Plant>>(response, HttpStatus.OK);
+    }
+
+
 }
