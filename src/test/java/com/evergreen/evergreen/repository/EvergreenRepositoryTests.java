@@ -5,25 +5,25 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-// @SpringBootTest
-// public class EvergreenRepositoryTests {
+@SpringBootTest
+@ActiveProfiles("test")
+ public class EvergreenRepositoryTests {
 
-//     @Autowired
-//     EvergreenRepository repository;
+     @Autowired
+     EvergreenRepository repository;
 
 
-//     @Test
-//     public void repositoryReturnsValidPlanWhenValidIdIsReceived(){
+     @Test
+     public void repositoryReturnsValidPlanWhenValidIdIsReceived(){
 
-//         Plant myPlant = repository.findById(1);
+         Plant myPlant = repository.findById(1);
 
-//         Assertions.assertTrue(myPlant.getId().equals(1));
-//        // Assertions.assertTrue(myPlant.getAge().equals(5));
-//         Assertions.assertTrue(myPlant.getSize().equals(50));
-//         Assertions.assertTrue(myPlant.getName().equals("Name 1"));
-// //        Assertions.assertTrue(myPlant.getSpecies().equals("Species 1"));
-// //        Assertions.assertTrue(myPlant.getStatus().equals("Alive"));
-//     }
+         Assertions.assertEquals(myPlant.getId(),1);
+         Assertions.assertEquals(myPlant.getAge(),3);
+         Assertions.assertEquals(myPlant.getSize(),12);
+         Assertions.assertEquals(myPlant.getName(),"Little Bamboo");
+     }
 
-// }
+ }

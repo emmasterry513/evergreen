@@ -2,12 +2,14 @@ package com.evergreen.evergreen;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-// @SpringBootTest
-// class EvergreenApplicationTests {
+@SpringBootTest
+@ActiveProfiles("test")
+ class EvergreenApplicationTests {
 
-// 	@Test
-// 	void contextLoads() {
-// 	}
+ 	@Test
+ 	void contextLoads() {
+ 	}
 
-// }
+ }

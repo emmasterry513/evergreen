@@ -1,9 +1,10 @@
 package com.evergreen.evergreen.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name="plant")
 public class Plant {
 
     @Id
@@ -11,9 +12,26 @@ public class Plant {
 
     private String name;
     private Integer size;
-    private String species;
     private Integer age;
-    private String status;
+    private Boolean alive;
+    @ManyToOne
+    private Species specie;
+
+    @OneToMany
+    private List<Events_log> event;
+
+    public Species getSpecie() {
+        return specie;
+    }
+
+    public void setSpecie(Species specie) {
+        this.specie = specie;
+    }
+
+
+
+
+
 
     public Integer getId() {
         return id;
@@ -39,14 +57,6 @@ public class Plant {
         this.size = size;
     }
 
-    public String getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(String species) {
-        this.species = species;
-    }
-
     public Integer getAge() {
         return age;
     }
@@ -55,11 +65,15 @@ public class Plant {
         this.age = age;
     }
 
-    public String getStatus() {
-        return status;
+    public Boolean getAlive() {
+        return alive;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAlive(Boolean alive) {
+        this.alive = alive;
     }
+
+
+
+
 }
