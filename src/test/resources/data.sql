@@ -1455,12 +1455,3 @@ INSERT INTO plant (name, age, size, alive, specie_id) VALUES ('Little Bamboo',3,
 --- LOAD LOG EVENTS TABLE
 INSERT INTO events_log (event_timestamp, event_type, water_ammount, plant_id) VALUES ("2021-03-12 17:13:08.155", 'WATER', 5,1);
 
-
-
-
-
---- LOAD LOG EVENTS TABLE
-INSERT INTO events_log (event_timestamp, event_type, water_ammount, plant_id) VALUES ("2021-03-12 17:13:08.155", 'WATER', 5,1);
-
-
-
