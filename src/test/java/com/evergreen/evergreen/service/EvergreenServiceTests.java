@@ -1,5 +1,6 @@
 package com.evergreen.evergreen.service;
 
+import com.evergreen.evergreen.model.Events_log;
 import com.evergreen.evergreen.model.Plant;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
- @SpringBootTest
+import java.sql.Timestamp;
+import java.util.List;
+
+@SpringBootTest
  @ActiveProfiles("test")
  public class EvergreenServiceTests {
 
@@ -27,11 +31,11 @@ import org.springframework.test.context.ActiveProfiles;
      @Test
      public void getEventsFromPlantByIdReturnsPlantEvents (){
 
-         Plant myPlant = service.getEventsFromPlant(1);
+         List<Events_log> myPlants = service.getEventsFromPlant(1);
 
-         Assertions.assertEquals(myPlant.getPlant_id(),1);
-         Assertions.assertEquals(myPlant.getWater_ammount(),50);
-         Assertions.assertEquals(myPlant.getEvent_timestamp(),timestamp);
-         Assertions.assertEquals(myPlant.getEvent_type(),watering);
+         Assertions.assertEquals(myPlants.get(0).getPlant_id(),1);
+         Assertions.assertEquals(myPlants.get(0).getWater_ammount(),50);
+         Assertions.assertEquals(myPlants.get(0).getEvent_timestamp(),new Timestamp(System.currentTimeMillis()));
+         Assertions.assertEquals(myPlants.get(0).getEvent_type(),"watering");
      }
  }

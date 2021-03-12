@@ -2,6 +2,7 @@ package com.evergreen.evergreen.repository;
 
 import com.evergreen.evergreen.model.Events_log;
 import com.evergreen.evergreen.model.Plant;
+import com.evergreen.evergreen.model.Species;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

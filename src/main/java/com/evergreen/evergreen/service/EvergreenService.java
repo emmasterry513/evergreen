@@ -2,6 +2,7 @@ package com.evergreen.evergreen.service;
 
 import com.evergreen.evergreen.model.Events_log;
 import com.evergreen.evergreen.model.Plant;
+import com.evergreen.evergreen.model.Species;
 import com.evergreen.evergreen.repository.EvergreenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,6 @@ import java.util.List;
 
 @Service
 public class EvergreenService {
-
 
     @Autowired
     EvergreenRepository repository;
@@ -59,22 +59,20 @@ public class EvergreenService {
         return myWateredPlants;
     }
 
-    public Function getPlantsThatHaveBeenWateredEnough (Integer id) {
-        List<Plant> myHappyPlants = new ArrayList<>();
+    public List<Plant> getPlantsThatHaveBeenWateredEnough () {
+
         List<Plant> myThirstyPlants = new ArrayList<>();
 
+        Timestamp timestamp_from = new Timestamp(System.currentTimeMillis() - (1 * 60 * 60 * 1000));
+        List<Events_log> myWateredEvents = repository.findPlantsWateredInTheLastHour(timestamp_from);
+
         // Loop againts our myWateredPlants List, this list contains all plans watered in the last hour
-        for (int k = 0; k < myWateredPlants.size(); k++){
+        for (int k = 0; k < myWateredEvents.size(); k++){
             //  Iterate over the list and add plants that have been watered less in the event than their water amount to the thirsty list
-            if(isPlantOnTheList = true; && myWateredPlants.getWater_ammount() > myWateredPlants.getEvent_type(int));{
-                myThirstyPlants.add(myWateredPlants.get(k).getPlant());
-            }
-            // Else statement to add all other plants to the happy list
-            else;{
-                myHappyPlants.add(myWateredPlants.get(k).getPlant());
+            if(myWateredEvents.get(k).getPlant().getSpecie().getRecommendedWater() < myWateredEvents.get(k).getWater_ammount()){
+                myThirstyPlants.add(myWateredEvents.get(k).getPlant());
             }
         }
-        return myHappyPlants;
         return myThirstyPlants;
     }
 }
