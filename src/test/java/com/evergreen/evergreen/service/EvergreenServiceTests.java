@@ -24,4 +24,14 @@ import org.springframework.test.context.ActiveProfiles;
          Assertions.assertEquals(myPlant.getSize(),12);
          Assertions.assertEquals(myPlant.getName(),"Little Bamboo");
      }
+     @Test
+     public void getEventsFromPlantByIdReturnsPlantEvents (){
+
+         Plant myPlant = service.getEventsFromPlant(1);
+
+         Assertions.assertEquals(myPlant.getPlant_id(),1);
+         Assertions.assertEquals(myPlant.getWater_ammount(),50);
+         Assertions.assertEquals(myPlant.getEvent_timestamp(),timestamp);
+         Assertions.assertEquals(myPlant.getEvent_type(),watering);
+     }
  }

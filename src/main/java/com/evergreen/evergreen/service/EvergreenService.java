@@ -59,4 +59,22 @@ public class EvergreenService {
         return myWateredPlants;
     }
 
+    public Function getPlantsThatHaveBeenWateredEnough (Integer id) {
+        List<Plant> myHappyPlants = new ArrayList<>();
+        List<Plant> myThirstyPlants = new ArrayList<>();
+
+        // Loop againts our myWateredPlants List, this list contains all plans watered in the last hour
+        for (int k = 0; k < myWateredPlants.size(); k++){
+            //  Iterate over the list and add plants that have been watered less in the event than their water amount to the thirsty list
+            if(isPlantOnTheList = true; && myWateredPlants.getWater_ammount() > myWateredPlants.getEvent_type(int));{
+                myThirstyPlants.add(myWateredPlants.get(k).getPlant());
+            }
+            // Else statement to add all other plants to the happy list
+            else;{
+                myHappyPlants.add(myWateredPlants.get(k).getPlant());
+            }
+        }
+        return myHappyPlants;
+        return myThirstyPlants;
+    }
 }
