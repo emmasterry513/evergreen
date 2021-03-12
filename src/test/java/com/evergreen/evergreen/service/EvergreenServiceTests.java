@@ -34,8 +34,8 @@ import java.util.List;
          List<Events_log> myPlants = service.getEventsFromPlant(1);
 
          Assertions.assertEquals(myPlants.get(0).getPlant_id(),1);
-         Assertions.assertEquals(myPlants.get(0).getWater_ammount(),50);
-         Assertions.assertEquals(myPlants.get(0).getEvent_timestamp(),new Timestamp(System.currentTimeMillis()));
+         Assertions.assertEquals(myPlants.get(0).getWater_ammount(),5);
+         Assertions.assertEquals(myPlants.get(0).getEvent_timestamp(),"2021-03-12 17:13:08.155");
          Assertions.assertEquals(myPlants.get(0).getEvent_type(),"watering");
      }
  }
