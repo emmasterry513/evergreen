@@ -16,6 +16,9 @@ CREATE TABLE "species"
  CONSTRAINT "PK_species" PRIMARY KEY ( "id" )
 );
 
+CREATE SEQUENCE species_id_seq;
+ALTER TABLE species ALTER id SET DEFAULT nextval('species_id_seq');
+
 CREATE TABLE "plant"
 (
  "id"           int NOT NULL,
@@ -33,19 +36,23 @@ CREATE INDEX "fkIdx_45" ON "plant"
  "specie_id"
 );
 
+CREATE SEQUENCE plant_id_seq;
+ALTER TABLE plant ALTER id SET DEFAULT nextval('plant_id_seq');
+
+
 -- ************************************** "water_log"
 
-CREATE TABLE "public"."events_log"
+CREATE TABLE "events_log"
 (
  "event_timestamp" timestamp NOT NULL,
  "plant_id"        int NOT NULL,
  "event_type"      varchar(50) NOT NULL,
  "water_ammount"   int NOT NULL,
  CONSTRAINT "PK_water_log" PRIMARY KEY ( "event_timestamp", "plant_id" ),
- CONSTRAINT "FK_46" FOREIGN KEY ( "plant_id" ) REFERENCES "public"."plant" ( "id" )
+ CONSTRAINT "FK_46" FOREIGN KEY ( "plant_id" ) REFERENCES "plant" ( "id" )
 );
 
-CREATE INDEX "fkIdx_46" ON "public"."events_log"
+CREATE INDEX "fkIdx_46" ON "events_log"
 (
  "plant_id"
 );
